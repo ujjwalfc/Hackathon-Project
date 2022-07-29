@@ -110,16 +110,18 @@
     Moralis.start({ serverUrl, appId });
 
     async function login(){
+      //location.href("Gallary.html");
+      //window.location = "Gallary.html";
+      window.open("Gallary.html");
       let user = Moralis.User.current();
         if (!user) {
             user = await Moralis.Web3.authenticate();
-            
         }
-       
+        
         console.log("logged in user:", user);
     }
 
-    // document.getElementById("btn-login").onclick = login;
+    //document.getElementById("btn-login").onclick = login();
 
   </script>
   </body>
