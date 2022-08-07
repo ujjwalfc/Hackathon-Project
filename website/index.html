@@ -112,7 +112,7 @@
     async function login(){
       //location.href("Gallary.html");
       //window.location = "Gallary.html";
-      window.open("Gallary.html");
+      window.open("dashboard.html");
       let user = Moralis.User.current();
         if (!user) {
             user = await Moralis.Web3.authenticate();
