@@ -5,6 +5,7 @@
     <!-- Moralis SDK code -->
     <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
     <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
+    <script src="index.js"></script>
    
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -75,14 +76,23 @@
     <link href="signin.css" rel="stylesheet">
   </head>
   
-  
-  <body class="text-center">
+  <body class="bg-light">
+    <div class="container"> 
+      <main class="form-signin w-70 m-auto">
+            <div>
+              <img src="images/Logo-01.svg" width="300" height="300">
+              <button class="w-100 btn btn-lg btn-primary" onclick="login()">Connect Wallet</button>
+              <input type="button" onclick="login()" value="connect wallet">
+            </div>
+      </main>
+    </div>
+  <!-- <body class="text-center">
 	<main class="form-signin w-100 m-auto">
 	  <form>
-			<img class="mb-4" src="icons8-login-64.png" alt="" width="72" height="57">
+			<img class="mb-4" src="images/Logo-01.svg" alt="" width="300" height="300">
 			<h1 class="h3 mb-3 fw-normal">D M S</h1>
 
-			<!-- <div class="form-floating">
+			<div class="form-floating">
 			  <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
 			  <label for="floatingInput">Email address</label>
 			</div>
@@ -96,14 +106,14 @@
 			  <label>
 			  <input type="checkbox" value="remember-me"> Remember me
 			  </label>
-			</div> -->
+			</div> 
 	
 			<button class="w-100 btn btn-lg btn-primary" onclick="login()">Connect Wallet</button>
 			
 	  </form>
-	</main>
+	</main> -->
 
-  <script>
+  <!-- <script>
     // connect to Moralis server
     const serverUrl = "https://dcprckkdugvp.usemoralis.com:2053/server";
     const appId = "BUZNDC2693Foup35DL8MIZV5mXpApCDoQtdQdCfx";
@@ -120,10 +130,8 @@
         
         console.log("logged in user:", user);
     }
-
     //document.getElementById("btn-login").onclick = login();
-
-  </script>
+  </script> -->
   </body>
   
 </html>

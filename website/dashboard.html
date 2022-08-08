@@ -73,7 +73,7 @@
                        <input type="text" class="form-control is-valid" id="VaultNameVerify" value="Nominee1" required>
                     </div>
                     <div class="col-md-6">
-                        <button class="btn btn-primary btn-md" type="AddVault">Add Vault</button>
+                        <button class="btn btn-primary btn-md" type="AddVault" onclick="login()">Add Vault</button>
                     </div>                       
                 </form>
             </div>
@@ -146,7 +146,11 @@
     </script> -->
 
     <script scr="dashboard.js">
-        console.log("Dashboard js")
+      async function login(){
+      window.open("Form.html");
+      console.log("Formpage")
+    }
+        
     </script>
 
 </body>

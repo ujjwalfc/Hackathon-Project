@@ -2,7 +2,8 @@
   "dependencies": {
     "express": "^4.18.1",
     "mysql": "github:mysqljs/mysql",
-    "sql": "^0.78.0"
+    "sql": "^0.78.0",
+    "web3": "^1.7.5"
   },
   "name": "website",
   "version": "1.0.0",
