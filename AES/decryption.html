@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AES</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+
+    <script>
+      /*function encrypt() {
+        var encrypted = CryptoJS.AES.encrypt(
+          document.getElementById("text").value,
+          document.getElementById("password").value
+        ); // automatively add salt or initiallization vector in password that why encrypted value change everytime
+        document.getElementById("EncryptedValue").innerHTML = encrypted;
+        document.getElementById("decrypted").innerHTML = "";
+      } */
+      
+      function decrypt() {
+        var decrypted = CryptoJS.AES.decrypt(
+          document.getElementById("secret").value,
+          document.getElementById("password").value
+        ).toString(CryptoJS.enc.Utf8);
+        console.log( document.getElementById("secret").value);
+        document.getElementById("decrypted").innerHTML = decrypted;
+        document.getElementById("EncryptedValue").innerHTML = "";
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Dead Man Switch</h1>
+    <!--
+    <br />Text to encrypt:
+    <br />
+    <br />
+    <textarea id="text" type="text" placeholder="Enter text to encrypt"></textarea>
+
+    <br />password: <input id="password" type="text" value="cool" />
+
+    <br /><button onclick="encrypt()">encrypt</button>
+
+    <br />Encrypted Value:<br /><span id="EncryptedValue"></span>
+    
+    <br />
+    -->
+    Encrypted message:<input id="secret" type="text" placeholder="paste encrypted message"/>
+    <br />
+    password:<input id="password" type="text" />
+    <br />
+    <button onclick="decrypt()">decrypt</button>
+    <br />Decrypted Value: <span id="decrypted"></span>
+  </body>
+</html>
