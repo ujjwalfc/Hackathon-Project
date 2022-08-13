@@ -1,40 +1,142 @@
-import Web3 from "web3";
-// const serverUrl = "https://dcprckkdugvp.usemoralis.com:2053/server";
-// const appId = "BUZNDC2693Foup35DL8MIZV5mXpApCDoQtdQdCfx";
-// Moralis.start({ serverUrl, appId });
+// // Source code to interact with smart contract
 
-async function login(){
+// // web3 provider with fallback for old version
+// window.addEventListener('load', async () => {
+//     // New web3 provider
+//     if (window.ethereum) {
+//         window.web3 = new Web3(ethereum);
+//         try {
+//             // ask user for permission
+//             await ethereum.enable();
+//             // user approved permission
+//         } catch (error) {
+//             // user rejected permission
+//             console.log('user rejected permission');
+//         }
+//     }
+//     // Old web3 provider
+//     else if (window.web3) {
+//         window.web3 = new Web3(web3.currentProvider);
+//         // no need to ask for permission
+//     }
+//     // No web3 provider
+//     else {
+//         console.log('No web3 provider detected');
+//     }
+//   });
+//   console.log (window.web3.currentProvider)
+  
+//   // contractAddress and abi are setted after contract deploy
+//   var contractAddress = '0xc864D0fef177A69aFa8E302A1b90e450910A4c3E';
+//   var abi = JSON.parse( '[{"constant":true,"inputs":[],"name":"getInfo","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_info","type":"string"}],"name":"setInfo","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]' );
+  
+//   //contract instance
+//   contract = new web3.eth.Contract(abi, contractAddress);
+  
+//   // Accounts
+//   var account;
+  
+//   web3.eth.getAccounts(function(err, accounts) {
+//     if (err != null) {
+//       alert("Error retrieving accounts.");
+//       return;
+//     }
+//     if (accounts.length == 0) {
+//       alert("No account found! Make sure the Ethereum client is configured properly.");
+//       return;
+//     }
+//     account = accounts[0];
+//     console.log('Account: ' + account);
+//     web3.eth.defaultAccount = account;
+//   });
+  
+//   //Smart contract functions
+//   function registerSetInfo() {
+//     info = $("#newInfo").val();
+//     contract.methods.setInfo (info).send( {from: account}).then( function(tx) {
+//       console.log("Transaction: ", tx);
+//     });
+//     $("#newInfo").val('');
+//   }
+  
+//   function registerGetInfo() {
+//     contract.methods.getInfo().call().then( function( info ) {
+//       console.log("info: ", info);
+//       document.getElementById('lastInfo').innerHTML = info;
+//     });
+//   }
 
-        // 1. Create global userWalletAddress variable
-    window.userWalletAddress = null;
+// // web3 provider with fallback for old version
+// window.addEventListener('load', async () => {
+//     // New web3 provider
+//     if (window.ethereum) {
+//         window.web3 = new Web3(ethereum);
+//         try {
+//             // ask user for permission
+//             await ethereum.enable();
+//             // user approved permission
+//         } catch (error) {
+//             // user rejected permission
+//             console.log('user rejected permission');
+//         }
+//     }
+//     // Old web3 provider
+//     else if (window.web3) {
+//         window.web3 = new Web3(web3.currentProvider);
+//         // no need to ask for permission
+//     }
+//     // No web3 provider
+//     else {
+//         console.log('No web3 provider detected');
+//     }
+//   });
 
-    // 2. when the browser is ready
-    window.onload = async (event) => {
+/* import moralis */
+//const Moralis = require("moralis/node");
 
-    // 2.1 check if ethereum extension is installed
-    if (window.ethereum) {
+const serverUrl = "https://dcprckkdugvp.usemoralis.com:2053/server";
+const appId = "BUZNDC2693Foup35DL8MIZV5mXpApCDoQtdQdCfx";
+Moralis.start({ serverUrl, appId });
 
-        // 3. create web3 instance
-        window.web3 = new Web3(window.ethereum);
 
-    } else {
+/* Authentication code */
+async function login() {
+    console.log("Login Function");
 
-        // 4. prompt user to install Metamask
-        alert("Please install MetaMask or any Ethereum Extension Wallet");
-    }
-
-    // 5. check if user is already logged in and update the global userWalletAddress variable
-    window.userWalletAddress = window.localStorage.getItem("userWalletAddress");
-
-    // 6. show the user dashboard
-    showUserDashboard();
-
-    //window.open("dashboard.html");
     // let user = Moralis.User.current();
-    //     if (!user) {
-    //         user = await Moralis.Web3.authenticate();
-    //     }
-    //console.log("logged in user:", user);
-    }
+    // if (!user) {
+      user = await Moralis.authenticate({
+        signingMessage: "Logging into DMS",
+      })
+        .then(function (user) {
+          console.log("logged in user:", user);
+          //console.log(user.get("ethAddress"));
+          window.location.href = "dashboard.html";
+        })
+        .catch(function (error) {
+          console.log(error);
+          console.log("Cancel the authentication", user);
+        })
+        // then(function (saveAddress){
+        //     userWalletAddress = user.get("ethAddress")});
 
+        // then(function (dashboard) {
+        //     window.location.href = "dashboard.html"});
+        // }
+    
 }
+
+/* Authentication code */
+// async function login() {
+//     console.log("logged in user");
+//     window.open("dashboard.html");
+//     let user = Moralis.User.current();
+//       if (!user) {
+//           user = await Moralis.Web3.authenticate();
+//       }
+// }
+
+
+  document.getElementById("btn-login").onclick = login;
+
+

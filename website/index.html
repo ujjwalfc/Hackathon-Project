@@ -4,17 +4,11 @@
     <meta charset="utf-8">
     <!-- Moralis SDK code -->
     <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
-    <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
-    <script src="index.js"></script>
-   
-	<!-- <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.98.0">
-   <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sign-in/">
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sign-in/">
- -->
-    
+    <script src="https://unpkg.com/moralis-v1/dist/moralis.js"></script>
+    <script src="./node_modules/web3/dist/web3.min.js"></script>
+    <!-- <script type="node_modules" src="index.js"></script> -->
+    <!-- <script type="text/javascript" src="index.js"></script> -->
+
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <title>DeadMan Switch</title>
     
@@ -81,38 +75,12 @@
       <main class="form-signin w-70 m-auto">
             <div>
               <img src="images/Logo-01.svg" width="300" height="300">
-              <button class="w-100 btn btn-lg btn-primary" onclick="login()">Connect Wallet</button>
-              <input type="button" onclick="login()" value="connect wallet">
+              <button id="btn-login" class="btn btn-primary btn-lg w-100">Connect Wallet</button>
             </div>
       </main>
     </div>
-  <!-- <body class="text-center">
-	<main class="form-signin w-100 m-auto">
-	  <form>
-			<img class="mb-4" src="images/Logo-01.svg" alt="" width="300" height="300">
-			<h1 class="h3 mb-3 fw-normal">D M S</h1>
 
-			<div class="form-floating">
-			  <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-			  <label for="floatingInput">Email address</label>
-			</div>
-			
-			<div class="form-floating">
-			  <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-			  <label for="floatingPassword">Password</label>
-			</div>
-
-			<div class="checkbox mb-3">
-			  <label>
-			  <input type="checkbox" value="remember-me"> Remember me
-			  </label>
-			</div> 
-	
-			<button class="w-100 btn btn-lg btn-primary" onclick="login()">Connect Wallet</button>
-			
-	  </form>
-	</main> -->
-
+    <script type="text/javascript" src="./index.js"></script>
   <!-- <script>
     // connect to Moralis server
     const serverUrl = "https://dcprckkdugvp.usemoralis.com:2053/server";
@@ -120,8 +88,6 @@
     Moralis.start({ serverUrl, appId });
 
     async function login(){
-      //location.href("Gallary.html");
-      //window.location = "Gallary.html";
       window.open("dashboard.html");
       let user = Moralis.User.current();
         if (!user) {
@@ -132,6 +98,7 @@
     }
     //document.getElementById("btn-login").onclick = login();
   </script> -->
+
   </body>
   
 </html>
