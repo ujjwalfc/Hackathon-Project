@@ -1,5 +1,21 @@
+
+async function AddVault() {
+  window.location.href = "form.html"
+}
+
+document.getElementById("AddVault-btn").onclick = AddVault;
+
+
+async function viewContract() {
+  window.location.href = "Nominated_Vault_1.html"
+}
+
+document.getElementById("view-btn").onclick = viewContract;
+
+
+
 // var mysql = require('mysql');
-// // var express = require('express');
+// var express = require('express');
 
 // console.log("Lib Include");
 
@@ -65,33 +81,33 @@
 // // document.getElementById("btn-mod").onclick = getAddress;
 
 /* import moralis */
-const Moralis = require("moralis-v1/node");
-const serverUrl = "https://dcprckkdugvp.usemoralis.com:2053/server";
-const appId = "BUZNDC2693Foup35DL8MIZV5mXpApCDoQtdQdCfx";
-const masterKey = "dr6FDp3aZfNt4rREQGW2k86Y10T1ggBixe1fO5hj";
+// const Moralis = require("moralis-v1/node");
+// const serverUrl = "https://dcprckkdugvp.usemoralis.com:2053/server";
+// const appId = "BUZNDC2693Foup35DL8MIZV5mXpApCDoQtdQdCfx";
+// const masterKey = "dr6FDp3aZfNt4rREQGW2k86Y10T1ggBixe1fO5hj";
 
-Moralis.start({ serverUrl, appId });
+// Moralis.start({ serverUrl, appId });
 
-const SaveData = async () => {
-  await Moralis.start({ serverUrl, appId, masterKey });
+// const SaveData = async () => {
+//   await Moralis.start({ serverUrl, appId, masterKey });
 
-  const Monster = Moralis.Object.extend("Monster");
-  const monster = new Monster();
+//   const Monster = Moralis.Object.extend("Monster");
+//   const monster = new Monster();
 
-  monster.set("Nomaniee", "Satoshi");
-  monster.set("VaultName", "Aegon");
-  monster.set("CycleTime", 20);
+//   monster.set("Nomaniee", "Satoshi");
+//   monster.set("VaultName", "Aegon");
+//   monster.set("CycleTime", 20);
 
-  await monster.save();
-};
+//   await monster.save();
+// };
 
-const FindQuery = async () => {
-  const Monster = Moralis.Object.extend("Monster");
-  const query = new Moralis.Query("Monster");
+// const FindQuery = async () => {
+//   const Monster = Moralis.Object.extend("Monster");
+//   const query = new Moralis.Query("Monster");
 
-  const results = await query.find();
-  console.log(results);
-};
+//   const results = await query.find();
+//   console.log(results);
+// };
 
-SaveData();
-//FindQuery();
+// SaveData();
+// FindQuery();

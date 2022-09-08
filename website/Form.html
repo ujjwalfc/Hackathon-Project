@@ -1,12 +1,15 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"charset="utf-8">
+	<script src="https://unpkg.com/moralis-v1/dist/moralis.js"></script>
     <title>Form</title>
-	<script src="AES.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script> -->
 
-<!--    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/checkout/"> 
--->
+
+	<!-- <script src="https://unpkg.com/moralis-v1/dist/moralis.js"></script> -->
+	<!-- <script type = "javascript" src="../website/AES.js"></script> -->
+
 
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -73,28 +76,25 @@
 	<div class="container">
 	  <main>
 		<div class="py-5 text-center">
-		  <img class="d-block mx-auto mb" src="images/Logo-01.svg" alt="" width="200" height="200">
+			<a href = "dashboard.html">
+			<img class="d-block mx-auto mb" src="images/Logo-01.svg" alt="" width="200" height="200">
+			</a>
 		  <h2>Create a New Vault</h2>
 		  <p class="lead">Please fill the form below to create a vault</p>
 		</div>
 
+		
+
 		  <div class="col-md-7 col-lg-12">
 			<h4 class="mb-3">Contract Details</h4>
-			<form class="needs-validation" novalidate>
+			<form class="needs-validation" novalidate autocomplete="off">
 			  <div class="row g-3">
-				<div class="col-12">
-				  <label for="owenerAddress" class="form-label">Vault Name</label>
-				  <input type="text" class="form-control" pattern="[a-zA-Z0-9]+" id="owenerAddress" placeholder="Name" value="" required>
-				  <div class="invalid-feedback">
-					Valid vault name is required.
-				  </div>
-				</div>
+				
 
 				<div class="col-12">
-				  <label for="ownerAddress" class="form-label">Owner Address</label>
+				  <label for="ownerAddress" class="form-label">Owner's Address</label>
 				  <div class="input-group has-validation">
-					<!-- <span class="input-group-text">@</span> -->
-					<input type="text" class="form-control" pattern="[a-zA-Z0-9]+" id="ownerAddress" placeholder="Account Address" required>
+					<input type="text" class="form-control" pattern="[a-zA-Z0-9]+" id="ownerAddress" placeholder="Account Address" required autocomplete="off">
 				  <div class="invalid-feedback">
 					  Owner address is required.
 					</div>
@@ -102,10 +102,9 @@
 				</div>
 
 				<div class="col-12">
-					<label for="trusteeAddress" class="form-label">Trustee Address</label>
+					<label for="trusteeAddress" class="form-label">Trustee's Address</label>
 					<div class="input-group has-validation">
-					  <!-- <span class="input-group-text">@</span> -->
-					  <input type="text" class="form-control" pattern="[a-zA-Z0-9]+" id="trusteeAddress" placeholder="Trustee Address" required>
+					  <input type="text" class="form-control" pattern="[a-zA-Z0-9]+" id="trusteeAddress" placeholder="Account Address" required autocomplete="off">
 					<div class="invalid-feedback">
 						Trustee address is required.
 					  </div>
@@ -115,8 +114,7 @@
 				<div class="col-12">
 					<label for="PoL" class="form-label">Proof of Life</label>
 					<div class="input-group has-validation">
-					  <!-- <span class="input-group-text">@</span> -->
-					  <input type="number" class="form-control" pattern="[a-zA-Z0-9]+" id="PoL" placeholder="Days" required>
+					  <input type="number" class="form-control" pattern="[a-zA-Z0-9]+" id="PoL" placeholder="Time" required autocomplete="off">
 					<div class="invalid-feedback">
 						Trustee address is required.
 					  </div>
@@ -124,10 +122,9 @@
 				</div>
 
 				<div class="col-12">
-					<label for="PoL" class="form-label">Secret Message</label>
+					<label for="secretMessage" class="form-label">Secret Message</label>
 					<div class="input-group has-validation">
-					  <!-- <span class="input-group-text">@</span> -->
-					  <input type="text" class="form-control" pattern="[a-zA-Z0-9]+" id="EncryptMsg" placeholder="Message to be Encrypted" required>
+					  <input type="text" class="form-control" pattern="[a-zA-Z0-9]+" id="EncryptMsg" placeholder="Message to be Encrypted" required autocomplete="off">
 					<div class="invalid-feedback">
 						Secret message is blank.
 					  </div>
@@ -136,28 +133,32 @@
 
 
 				<div class="col-12">
-					<label for="PoL" class="form-label">Decryption Code</label>
+					<label for="decryptionCode" class="form-label">Decryption Code</label>
 					<div class="input-group has-validation">
-					  <!-- <span class="input-group-text">@</span> -->
-					  <input type="text" class="form-control" pattern="[a-zA-Z0-9]+" id="DecryptPasscode" placeholder="Create passcode for Decryption" required>
+					  <input type="text" class="form-control" pattern="[a-zA-Z0-9]+" id="DecryptPasscode" placeholder="Create passcode for Decryption" required autocomplete="off">
 					<div class="invalid-feedback">
 						Decryption code is blank.
 					  </div>
 					</div>
 				</div>
 
-				<br />Encrypted Value:<br /><span id="EncryptedValue"></span>
-
+				<!-- <div class="col-12">
+					<label for="encryptedMsg">Encrypted Message</label>
+					<div class="has-validation"></div>
+					  <input type="text"  pattern="[a-zA-Z0-9]+" id="EncryptedValue" placeholder="Your Encrypted Message" required>
+				</div> -->
+				<!-- <br />Encrypted Value:<br /><span id="EncryptedValue"></span> -->
 			  <hr class="my-4">
 
-			  <button class="w-100 btn btn-primary btn-lg" type="submit" onclick="foo()">Submit</button>
+			  <button class="w-100 btn btn-primary btn-lg" type="button" id="Submit-btn">Submit</button>
+			  <!-- <button type="submit" onclick="encrypt()">Submit</button> -->
 			</form>
 		  </div>
 		</div>
 	  </main>
 
 	  <footer class="my-5 pt-5 text-muted text-center text-small">
-		<p class="mb-1">&copy; 2017–2022 Company Name</p>
+		<p class="mb-1">&copy; 2017–2022 DMS</p>
 		<ul class="list-inline">
 		  <li class="list-inline-item"><a href="#">Privacy</a></li>
 		  <li class="list-inline-item"><a href="#">Terms</a></li>
@@ -169,8 +170,9 @@
 
 		<!-- <script src="../assets/dist/js/bootstrap.bundle.min.js"></script> -->
 
-		  <!-- <script src="form-validation.js"></script> -->
-		  <script src="AES.js"></script>
+		  <script src="form-validation.js"></script>
+		  
+		  <script type="text/javascript" src="./JavaScript/form.js"></script>
   </body>
 </html>
 

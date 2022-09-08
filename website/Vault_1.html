@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+		<meta name="viewport" content="width=device-width, initial-scale=1"charset="utf-8">
+		<script src="https://unpkg.com/moralis-v1/dist/moralis.js"></script>
+		<title>View contract</title>
+
+		<link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/checkout/"> 
+
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+
+		<style>
+	.bd-placeholder-img { 
+		font-size: 1.125rem;
+		text-anchor: middle;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		user-select: none;
+	}
+
+	@media (min-width: 768px) {
+		.bd-placeholder-img-lg {
+		font-size: 3.5rem;
+		}
+	}
+
+	.b-example-divider {
+		height: 3rem;
+		background-color: rgba(0, 0, 0, .1);
+		border: solid rgba(0, 0, 0, .15);
+		border-width: 1px 0;
+		box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+	}
+
+	.b-example-vr {
+		flex-shrink: 0;
+		width: 1.5rem;
+		height: 100vh;
+	}
+
+	.bi {
+		vertical-align: -.125em;
+		fill: currentColor;
+	}
+
+	.nav-scroller {
+		position: relative;
+		z-index: 2;
+		height: 2.75rem;
+		overflow-y: hidden;
+	}
+
+	.nav-scroller .nav {
+		display: flex;
+		flex-wrap: nowrap;
+		padding-bottom: 1rem;
+		margin-top: -1px;
+		overflow-x: auto;
+		text-align: center;
+		white-space: nowrap;
+		-webkit-overflow-scrolling: touch;
+	}
+		</style>
+
+	
+		<!-- Custom styles for this template -->
+		<link href="form-validation.css" rel="stylesheet">
+	</head>
+  
+	<body class="bg-light">
+		
+		<div class="container">
+			<main>
+				<div class="py-5 text-center">
+					<a href = "dashboard1.html">
+						<img class="d-block mx-auto mb" src="images/Logo-01.svg" alt="" width="200" height="200">
+					</a>
+					<h2>Vault 1</h2>
+					<p class="lead">Please fill the form below to check the status of your vault</p>
+				</div>	
+				
+				<div class="col-md-7 col-lg-12">
+					<h4 class="mb-3">Contract Details</h4>
+					<br></br>
+					<form class="needs-validation" novalidate>
+						<div class="row g-3"></div>
+						<div class="needs-validation">
+							<label for="expTime" class="form-label">Time till Expiry</label>
+							<input type="text" class="form-control" pattern="[a-zA-Z0-9]+" placeholder="Owner Address" required>
+							<hr class="my-1"> 
+							<button class="w-20 btn btn-primary btn-sm" id="timeTillExp-btn" type="submit" form onsubmit="return false" >Submit</button>
+							<div class="invalid-feedback">
+								Owner address is required.
+							</div>
+							<p id="responseExp"></p>
+						</div>
+					
+					</form>
+					<br></br>
+					<div class="col-13">
+						<form class="needs-validation" novalidate>
+							<label for="addTime" class="form-label">Proof of Life </label>
+							<div class="needs-validation">
+								<!-- <span class="input-group-text">@</span> -->
+								<input type="text" class="form-control" pattern="[a-zA-Z0-9]+" placeholder="Owner Address" required>
+								<hr class="my-1">
+								<button class="w-20 btn btn-primary btn-sm" id="PoL-btn" type="button" ">Submit</button>
+								<div class="invalid-feedback">
+									Owner address is required.
+								</div>
+								<p id="responsePoL"></p>
+							</div>
+						</form>
+					</div>
+				</div>
+			</main>	
+
+			<footer class="my-5 pt-5 text-muted text-center text-small">
+				<p class="mb-1">&copy; 2017–2022 DMS</p>
+				<ul class="list-inline">
+					<li class="list-inline-item"><a href="#">Privacy</a></li>
+					<li class="list-inline-item"><a href="#">Terms</a></li>
+					<li class="list-inline-item"><a href="#">Support</a></li>
+				</ul>
+			</footer>
+		</div>
+
+
+			<!-- <script src="../assets/dist/js/bootstrap.bundle.min.js"></script> -->
+
+		<script type="text/javascript" src="./JavaScript/Vault_1.js"></script>
+	</body>
+</html>
+
+
+
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.98.0">
+-->

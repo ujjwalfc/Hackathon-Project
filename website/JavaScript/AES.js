@@ -1,5 +1,6 @@
 //<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
 
+<<<<<<< Updated upstream
 // function encrypt() {
 //     var encrypted = CryptoJS.AES.encrypt(
 //       document.getElementById("text").value,
@@ -24,6 +25,16 @@ async function foo() {
  }
 
 
+=======
+function encrypt() {
+  var encrypted = CryptoJS.AES.encrypt(
+    document.getElementById("EncryptMsg").value,
+    document.getElementById("DecryptPasscode").value
+  ); // automatively add salt or initiallization vector in password that why encrypted value change everytime
+  document.getElementById("EncryptedValue").innerHTML = encrypted;
+  document.getElementById("decrypted").innerHTML = "";
+}
+>>>>>>> Stashed changes
 
 // function decrypt() {
 //     var decrypted = CryptoJS.AES.decrypt(
